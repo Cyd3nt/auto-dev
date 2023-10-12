@@ -13,25 +13,25 @@ import java.net.URI
 
 @ApiStatus.Internal
 class MarkdownToHtmlConverter(
-  private val flavourDescriptor: MarkdownFlavourDescriptor
+    private val flavourDescriptor: MarkdownFlavourDescriptor
 ) {
-  @NlsSafe
-  fun convertMarkdownToHtml(@NlsSafe markdownText: String, server: String? = null): String {
-    val parsedTree = MarkdownParser(flavourDescriptor).buildMarkdownTreeFromString(markdownText)
-    val providers = flavourDescriptor.createHtmlGeneratingProviders(
-      linkMap = LinkMap.buildLinkMap(parsedTree, markdownText),
-      baseURI = server?.let { URI(it) }
-    )
+    @NlsSafe
+    fun convertMarkdownToHtml(@NlsSafe markdownText: String, server: String? = null): String {
+        val parsedTree = MarkdownParser(flavourDescriptor).buildMarkdownTreeFromString(markdownText)
+        val providers = flavourDescriptor.createHtmlGeneratingProviders(
+            linkMap = LinkMap.buildLinkMap(parsedTree, markdownText),
+            baseURI = server?.let { URI(it) }
+        )
 
-    return HtmlGenerator(markdownText, parsedTree, providers, false).generateHtml()
-  }
+        return HtmlGenerator(markdownText, parsedTree, providers, false).generateHtml()
+    }
 }
 
 // https://github.com/JetBrains/markdown/issues/72
 private val embeddedHtmlType = IElementType("ROOT")
 
 fun convertMarkdownToHtml(@NlsSafe markdownText: String): String {
-  val flavour = GFMFlavourDescriptor()
-  val parsedTree = MarkdownParser(flavour).parse(embeddedHtmlType, markdownText)
-  return HtmlGenerator(markdownText, parsedTree, flavour).generateHtml()
+    val flavour = GFMFlavourDescriptor()
+    val parsedTree = MarkdownParser(flavour).parse(embeddedHtmlType, markdownText)
+    return HtmlGenerator(markdownText, parsedTree, flavour).generateHtml()
 }

@@ -54,7 +54,10 @@ class CLionWorkspaceContextProvider : ChatContextProvider {
         }
     }
 
-    private fun createPreferredLanguageItem(project: Project, creationContext: ChatCreationContext): List<ChatContextItem> {
+    private fun createPreferredLanguageItem(
+        project: Project,
+        creationContext: ChatCreationContext
+    ): List<ChatContextItem> {
         val sourceFile = creationContext.sourceFile
         return if (sourceFile != null) {
             listOf(

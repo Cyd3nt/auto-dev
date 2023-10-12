@@ -7,7 +7,7 @@ import com.intellij.execution.configurations.RunConfigurationBase
 import com.intellij.psi.PsiElement
 
 
-abstract class BaseLazyRunConfigurationProducer<T: BaseConfig, C: RunConfigurationBase<out ModuleBasedConfigurationOptions>> :
+abstract class BaseLazyRunConfigurationProducer<T : BaseConfig, C : RunConfigurationBase<out ModuleBasedConfigurationOptions>> :
     LazyRunConfigurationProducer<C>() {
     val runConfigProviders: MutableList<(List<PsiElement>) -> T?> = mutableListOf()
 

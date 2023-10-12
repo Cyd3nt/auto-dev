@@ -35,7 +35,11 @@
       "properties": {
         "title": {
           "type": "string",
-          "enum": ["normal", "annotated", "custom"]
+          "enum": [
+            "normal",
+            "annotated",
+            "custom"
+          ]
         },
         "prompt": {
           "type": "string"

@@ -1,4 +1,5 @@
 Q:
+
 ```java
 public void foo() {
     int x = 42 + 42;
@@ -8,7 +9,9 @@ public void foo() {
     return x + x;
 }
 ```
+
 A:
+
 ```java
 public void foo() {
     int x = 42 + 42;
@@ -29,4 +32,5 @@ public void foo() {
     return x + x;
 }
 ```
+
 Q:

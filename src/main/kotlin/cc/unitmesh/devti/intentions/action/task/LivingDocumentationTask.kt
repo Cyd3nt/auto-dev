@@ -20,6 +20,7 @@ class LivingDocumentationTask(
     companion object {
         val logger = logger<LivingDocumentationTask>()
     }
+
     override fun run(indicator: ProgressIndicator) {
         val documentation = LivingDocumentation.forLanguage(target.language) ?: return
         val builder = LivingDocPromptBuilder(editor, target, documentation, type)

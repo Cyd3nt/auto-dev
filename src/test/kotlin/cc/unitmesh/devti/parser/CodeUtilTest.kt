@@ -20,13 +20,15 @@ class CodeUtilTest {
         val code = Code.parse(markdown)
 
 //        assertEquals(code.language.id, "java")
-        assertEquals(code.text, """
+        assertEquals(
+            code.text, """
             |public class HelloWorld {
             |    public static void main(String[] args) {
             |        System.out.println("Hello, World");
             |    }
             |}
-        """.trimMargin())
+        """.trimMargin()
+        )
         assertTrue(code.isComplete)
     }
 
@@ -40,11 +42,13 @@ class CodeUtilTest {
         """.trimMargin()
 
         val code = Code.parse(markdown)
-        assertEquals(code.text, """
+        assertEquals(
+            code.text, """
             |public class HelloWorld {
             |    public static void main(String[] args) {
             |        System.out.println("Hello, World");
-        """.trimMargin())
+        """.trimMargin()
+        )
         assertTrue(!code.isComplete)
     }
 }

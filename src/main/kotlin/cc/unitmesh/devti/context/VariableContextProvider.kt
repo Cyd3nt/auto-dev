@@ -10,7 +10,7 @@ class VariableContextProvider(
     private val includeMethodContext: Boolean,
     private val includeClassContext: Boolean,
     private val gatherUsages: Boolean
-): LLMCodeContextProvider<PsiElement> {
+) : LLMCodeContextProvider<PsiElement> {
     private val languageExtension: LanguageExtension<VariableContextBuilder> =
         LanguageExtension("cc.unitmesh.variableContextBuilder")
 

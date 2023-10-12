@@ -40,7 +40,8 @@ permalink: /quick-start
 2. select `AI Engine` -> `Custom`
 3. fill `Custom Engine Server`
 4. fill `Custom Engine Token` if needed.
-5. config `Custom Response Format` by [JsonPath](https://github.com/json-path/JsonPath) (for example: `$.choices[0].content`), if not set, will use OpenAI's format as default.
+5. config `Custom Response Format` by [JsonPath](https://github.com/json-path/JsonPath) (for
+   example: `$.choices[0].content`), if not set, will use OpenAI's format as default.
 6. Apply and OK.
 
 the request format logic:

@@ -27,16 +27,17 @@ AutoDev Prompt 生成策略是 AutoDev 的核心功能，它可以根据你的�
 
 ![AutoDev Prompt Example](https://unitmesh.cc/auto-dev/autodev-prompt-strategy-2.png)
 
-由每个语言模块基于抽象接口实现对应的：**语言上下文**、**技术栈上下文**，为此需要读取依赖相关的信息，如 gradle，maven，package.json 等。
+由每个语言模块基于抽象接口实现对应的：**语言上下文**、**技术栈上下文**，为此需要读取依赖相关的信息，如
+gradle，maven，package.json 等。
 
 ## 相关上下文
 
 AutoDev 提供了以下几种相关上下文：
 
 - 基于静态代码分析的方式，即结合 import 语法和函数的输入、输出，生成对应的上下文信息。
-  - 对应实现类：[JavaContextPrompter]
+    - 对应实现类：[JavaContextPrompter]
 - 通过 Cosine Similarity 来计算最近打开 20 个文件代码块的相似度。即 GitHub Copilot、JetBrains AI Assistant 的实现方式之一。
-  - 对应实现类：[SimilarChunksWithPaths]
+    - 对应实现类：[SimilarChunksWithPaths]
 
 ![AutoDev Similar Chunk](https://unitmesh.cc/auto-dev/autodev-prompt-strategy-3.png)
 
@@ -53,7 +54,8 @@ abstract class ContextPrompter {
 ```
 
 - displayPrompt: 用于展示给用户的 prompt，比如：`Code complete`，`Translate to Kotlin` 等。
-- requestPrompt: 用于请求 AI 服务的 prompt，比如：`Code complete:\n${METHOD_INPUT_OUTPUT}\n${SPEC_controller}\n\n${SELECTION}`。
+- requestPrompt: 用于请求 AI 服务的
+  prompt，比如：`Code complete:\n${METHOD_INPUT_OUTPUT}\n${SPEC_controller}\n\n${SELECTION}`。
 
 根据不同的情况，会在展示给用户的 prompt 中隐藏一些细节，比如相关代码块，输入输出等。
 

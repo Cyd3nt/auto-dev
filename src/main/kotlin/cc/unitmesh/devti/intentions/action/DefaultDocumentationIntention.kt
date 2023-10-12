@@ -8,7 +8,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 
-class DefaultDocumentationIntention: BasedDocumentationIntention() {
+class DefaultDocumentationIntention : BasedDocumentationIntention() {
     override val config: CustomDocumentationConfig
         get() = CustomDocumentationConfig.default()
 

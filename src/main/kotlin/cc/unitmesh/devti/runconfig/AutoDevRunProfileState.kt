@@ -42,7 +42,7 @@ class AutoDevRunProfileState(
     }
 
     override fun execute(executor: Executor?, runner: ProgramRunner<*>): ExecutionResult? {
-        val gitHubIssue : Kanban
+        val gitHubIssue: Kanban
         if ("Github" == gitType) {
             gitHubIssue = GitHubIssue(options.githubRepo(), githubToken)
         } else {

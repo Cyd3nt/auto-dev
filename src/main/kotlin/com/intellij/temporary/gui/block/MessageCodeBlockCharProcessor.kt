@@ -52,10 +52,12 @@ class MessageCodeBlockCharProcessor {
                 val subSequence = fullMessage.subSequence(charIndex - 3, charIndex + 1)
                 subSequence == "\n$borderBlock"
             }
+
             parameters.char == '\n' && (charIndex - 3) - 1 >= 0 -> {
                 val subSequence = fullMessage.subSequence(charIndex - 4, charIndex)
                 subSequence == "\n$borderBlock"
             }
+
             else -> false
         }
     }

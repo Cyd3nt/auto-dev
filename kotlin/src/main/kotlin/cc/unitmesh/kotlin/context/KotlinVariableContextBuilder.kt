@@ -32,7 +32,16 @@ class KotlinVariableContextBuilder : VariableContextBuilder {
                     emptyList()
                 }
 
-                return VariableContext(psiElement, text, name, parentOfType, containingClass, usages, includeMethodContext, includeClassContext)
+                return VariableContext(
+                    psiElement,
+                    text,
+                    name,
+                    parentOfType,
+                    containingClass,
+                    usages,
+                    includeMethodContext,
+                    includeClassContext
+                )
             }
 
             is KtParameter -> {
@@ -48,7 +57,16 @@ class KotlinVariableContextBuilder : VariableContextBuilder {
                     emptyList()
                 }
 
-                return VariableContext(psiElement, text, name, parentOfType, containingClass, usages, includeMethodContext, includeClassContext)
+                return VariableContext(
+                    psiElement,
+                    text,
+                    name,
+                    parentOfType,
+                    containingClass,
+                    usages,
+                    includeMethodContext,
+                    includeClassContext
+                )
             }
 
             else -> {

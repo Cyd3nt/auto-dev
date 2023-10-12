@@ -10,7 +10,7 @@ class VariableContext(
     override val text: String,
     override val name: String?,
     val enclosingMethod: PsiElement? = null,
-    val enclosingClass: PsiElement?= null,
+    val enclosingClass: PsiElement? = null,
     val usages: List<PsiReference> = emptyList(),
     val includeMethodContext: Boolean = false,
     val includeClassContext: Boolean = false

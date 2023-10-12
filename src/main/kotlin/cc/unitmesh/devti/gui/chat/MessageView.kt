@@ -37,11 +37,13 @@ class MessageView(private val message: String, val role: ChatRole, private val d
 
         val authorLabel = JLabel()
         authorLabel.setFont(JBFont.h4())
-        authorLabel.setText(when (role) {
-            ChatRole.System -> "System"
-            ChatRole.Assistant -> "Assistant"
-            ChatRole.User -> "User"
-        })
+        authorLabel.setText(
+            when (role) {
+                ChatRole.System -> "System"
+                ChatRole.Assistant -> "Assistant"
+                ChatRole.User -> "User"
+            }
+        )
         myNameLabel = authorLabel
 
         this.border = JBEmptyBorder(8)

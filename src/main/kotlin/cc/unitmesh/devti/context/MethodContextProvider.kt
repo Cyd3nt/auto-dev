@@ -7,7 +7,7 @@ import com.intellij.lang.LanguageExtension
 import com.intellij.psi.PsiElement
 import org.jetbrains.annotations.NotNull
 
-class MethodContextProvider(private val includeClassContext: Boolean, private val gatherUsages: Boolean):
+class MethodContextProvider(private val includeClassContext: Boolean, private val gatherUsages: Boolean) :
     LLMCodeContextProvider<PsiElement> {
     @NotNull
     private val languageExtension: LanguageExtension<MethodContextBuilder> =

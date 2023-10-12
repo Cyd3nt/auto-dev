@@ -16,7 +16,8 @@ class KotlinFileContextBuilder : FileContextBuilder {
         val name = psiFile.name
         val path = psiFile.virtualFile?.path ?: ""
 
-        val packageDirective = PsiTreeUtil.getChildrenOfTypeAsList(psiFile, KtPackageDirective::class.java).firstOrNull()
+        val packageDirective =
+            PsiTreeUtil.getChildrenOfTypeAsList(psiFile, KtPackageDirective::class.java).firstOrNull()
         val packageName = packageDirective?.text ?: ""
 
         val importList = PsiTreeUtil.getChildrenOfTypeAsList(psiFile, KtImportList::class.java)

@@ -57,7 +57,7 @@ class KotlinCodeModifier : CodeModifier {
             } ?: return@invokeLater
 
 
-            val newTestMethod =  KtPsiFactory(project).createFunction(code)
+            val newTestMethod = KtPsiFactory(project).createFunction(code)
             if (rootElement.findMethodsByName(newTestMethod.name, false).isNotEmpty()) {
                 log.error("Method already exists in the class: ${newTestMethod.name}")
             }

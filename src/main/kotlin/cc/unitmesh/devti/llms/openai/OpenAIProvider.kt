@@ -90,7 +90,7 @@ class OpenAIProvider(val project: Project) : LLMProvider {
         return callbackFlow {
             withContext(Dispatchers.IO) {
                 service.streamChatCompletion(completionRequest)
-                    .doOnError{ error ->
+                    .doOnError { error ->
                         logger.error("Error in stream", error)
                         trySend(error.message ?: "Error occurs")
                     }

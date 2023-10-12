@@ -98,7 +98,10 @@ public class BlogController {
     fun testShould_find_no_exist_methods() {
         val psiFile = fileFactory.createFileFromText(JavaLanguage.INSTANCE, classCode)
         val findNoExistMethod =
-            JavaCodeProcessor.findNoExistMethod(psiFile as PsiJavaFile, listOf("blogService.deleteBlogPost();", "blogService.createBlog(blogPost)"))
+            JavaCodeProcessor.findNoExistMethod(
+                psiFile as PsiJavaFile,
+                listOf("blogService.deleteBlogPost();", "blogService.createBlog(blogPost)")
+            )
 
         TestCase.assertEquals(findNoExistMethod.size, 1)
         assertEquals("deleteBlogPost", findNoExistMethod[0])

@@ -15,9 +15,11 @@ class JavaSpringCodeCreatorTest : LightPlatformTestCase() {
         psiClass.setName("HelloController")
         psiClass.addBefore(javaFactory.createAnnotationFromText("@Controller", null), psiClass.firstChild)
 
-        TestCase.assertEquals(psiClass.text, """@Controller class HelloController {
+        TestCase.assertEquals(
+            psiClass.text, """@Controller class HelloController {
 
-}""")
+}"""
+        )
     }
 
     fun testShould_return_true_when_its_a_service() {

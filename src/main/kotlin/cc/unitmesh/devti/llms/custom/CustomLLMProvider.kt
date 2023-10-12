@@ -79,42 +79,42 @@ class CustomLLMProvider(val project: Project) : LLMProvider {
             builder.addHeader("Authorization", "Bearer $key")
         }
         client = client.newBuilder()
-                .readTimeout(timeout)
-                .build()
+            .readTimeout(timeout)
+            .build()
         val request = builder
-                .url(url)
-                .post(body)
-                .build()
+            .url(url)
+            .post(body)
+            .build()
 
         val call = client.newCall(request)
         val emitDone = false
 
         val sseFlowable = Flowable
-                .create({ emitter: FlowableEmitter<SSE> ->
-                    call.enqueue(cc.unitmesh.devti.llms.azure.ResponseBodyCallback(emitter, emitDone))
-                }, BackpressureStrategy.BUFFER)
+            .create({ emitter: FlowableEmitter<SSE> ->
+                call.enqueue(cc.unitmesh.devti.llms.azure.ResponseBodyCallback(emitter, emitDone))
+            }, BackpressureStrategy.BUFFER)
 
         try {
             logger.warn("Starting to stream:")
             return callbackFlow {
                 withContext(Dispatchers.IO) {
                     sseFlowable
-                            .doOnError(Throwable::printStackTrace)
-                            .blockingForEach { sse ->
-                                if (engineFormat.isNotEmpty()) {
-                                    val chunk: String = JsonPath.parse(sse!!.data)?.read<String>(engineFormat)
-                                            ?: throw Exception("Failed to parse chunk: ${sse.data}, format: $engineFormat")
-                                    trySend(chunk)
-                                } else {
-                                    val result: ChatCompletionResult =
-                                            ObjectMapper().readValue(sse!!.data, ChatCompletionResult::class.java)
+                        .doOnError(Throwable::printStackTrace)
+                        .blockingForEach { sse ->
+                            if (engineFormat.isNotEmpty()) {
+                                val chunk: String = JsonPath.parse(sse!!.data)?.read<String>(engineFormat)
+                                    ?: throw Exception("Failed to parse chunk: ${sse.data}, format: $engineFormat")
+                                trySend(chunk)
+                            } else {
+                                val result: ChatCompletionResult =
+                                    ObjectMapper().readValue(sse!!.data, ChatCompletionResult::class.java)
 
-                                    val completion = result.choices[0].message
-                                    if (completion != null && completion.content != null) {
-                                        trySend(completion.content)
-                                    }
+                                val completion = result.choices[0].message
+                                if (completion != null && completion.content != null) {
+                                    trySend(completion.content)
                                 }
                             }
+                        }
 
                     close()
                 }
@@ -142,13 +142,13 @@ class CustomLLMProvider(val project: Project) : LLMProvider {
 
         try {
             client = client.newBuilder()
-                    .readTimeout(timeout)
-                    .build()
+                .readTimeout(timeout)
+                .build()
 
             val request = builder
-                    .url(url)
-                    .post(body)
-                    .build()
+                .url(url)
+                .post(body)
+                .build()
 
             val response = client.newCall(request).execute()
 

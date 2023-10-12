@@ -1,4 +1,5 @@
 Q:
+
 ```python
 def foo():
     x = 42 + 42
@@ -7,7 +8,9 @@ def foo():
     # end of the code completion
     return x + x
 ```
+
 A:
+
 ```python
 def foo():
     x = 42 + 42
@@ -20,4 +23,5 @@ def foo():
     # end of the code completion
     return x + x
 ```
+
 Q:

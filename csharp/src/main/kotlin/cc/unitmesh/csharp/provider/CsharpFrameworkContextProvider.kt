@@ -6,7 +6,7 @@ import cc.unitmesh.devti.provider.context.ChatContextProvider
 import cc.unitmesh.devti.provider.context.ChatCreationContext
 import com.intellij.openapi.project.Project
 
-class CsharpFrameworkContextProvider: ChatContextProvider {
+class CsharpFrameworkContextProvider : ChatContextProvider {
     override fun isApplicable(project: Project, creationContext: ChatCreationContext): Boolean {
         return creationContext.action != ChatActionType.CODE_COMPLETE
     }

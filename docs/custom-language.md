@@ -18,6 +18,7 @@ For a new language, you need to implement:
 
 1. create a new module in `settings.gradle.kts`, like: `webstorm`, `pycharm` ...,
 2. config in  `build.gradle.kts` for new module, like:
+
 ```kotlin
 project(":pycharm") {
     intellij {
@@ -29,6 +30,7 @@ project(":pycharm") {
     }
 }
 ```
+
 3. sync Gradle in Intellij IDEA
 4. create xml file in `resources/META-INF` like `cc.unitmesh.pycharm.xml`, and import
    to `plugin/src/main/resources/META-INF/plugin.xml`

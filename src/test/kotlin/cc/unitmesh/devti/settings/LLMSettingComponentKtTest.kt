@@ -55,10 +55,10 @@ class LLMSettingComponentKtTest {
         val textField = ReactiveTextField(param)
         textField.text = "abcdefg"
 
-        assertEquals("value should be changed","abcdefg", param.value)
+        assertEquals("value should be changed", "abcdefg", param.value)
 
         // TODO why count is 2? doucment.addUndoableEditListener is called at initialization
-        assertEquals("onChange should be called",2, count)
+        assertEquals("onChange should be called", 2, count)
     }
 
     @Test
@@ -66,8 +66,8 @@ class LLMSettingComponentKtTest {
         var count = 0
         val param by LLMParam.creating(onChange = {
             println("changed $it")
-            count ++
-        }){
+            count++
+        }) {
             ComboBox("test", listOf("test", "test2"))
         }
         val comboBox = ReactiveComboBox(param)

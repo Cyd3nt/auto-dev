@@ -7,6 +7,7 @@ Below are some lines from the file /{path}. Each line is numbered.
 #####
 
 Your job is to perform the following tasks:
+
 1. Find all the relevant line ranges of code.
 2. DO NOT cite line ranges that you are not given above
 3. You MUST answer with only line ranges. DO NOT answer the question

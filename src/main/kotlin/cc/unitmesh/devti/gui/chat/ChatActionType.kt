@@ -77,6 +77,7 @@ $diff
             GEN_COMMIT_MESSAGE -> {
                 generateCommitMessage(prepareVcsContext())
             }
+
             CREATE_CHANGELOG -> "generate release note"
             CHAT -> ""
             CUSTOM_COMPLETE -> ""

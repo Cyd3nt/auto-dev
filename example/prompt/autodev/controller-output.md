@@ -1,6 +1,5 @@
 # Output
 
-
 ```
 @PostMapping("/blog")
 public ResponseEntity<?> createBlog(@RequestBody Blog blog) {

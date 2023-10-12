@@ -113,8 +113,8 @@ allprojects {
     idea {
         module {
             generatedSourceDirs.add(file("src/gen"))
-            isDownloadJavadoc=true
-            isDownloadSources=true
+            isDownloadJavadoc = true
+            isDownloadSources = true
         }
     }
 
@@ -335,7 +335,7 @@ project(":") {
         implementation(libs.kotlinx.serialization.json)
 
         // gitlab4j-api
-        implementation("org.gitlab4j:gitlab4j-api:4.17.0"){
+        implementation("org.gitlab4j:gitlab4j-api:4.17.0") {
             exclude(module = "jackson-core")
             exclude(module = "jackson-databind")
             exclude(module = "jackson-annotations")

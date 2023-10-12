@@ -7,7 +7,7 @@ import com.intellij.testFramework.LightPlatformTestCase
 import com.jetbrains.python.PythonLanguage
 import com.jetbrains.python.psi.PyFile
 
-class PythonContextTest  : LightPlatformTestCase() {
+class PythonContextTest : LightPlatformTestCase() {
     private val fileFactory: PsiFileFactory get() = PsiFileFactory.getInstance(project)
     private val classCode = """class Person:
   def __init__(self, name, age):
@@ -28,9 +28,11 @@ print(p1.age) """
         psiElement.methods.forEach { println(it.name) }
         val classContext: ClassContext = ClassContextProvider(false).from(psiElement)
 
-        assertEquals(classContext.format(), """class _ {
+        assertEquals(
+            classContext.format(), """class _ {
   
   
-}""");
+}"""
+        );
     }
 }

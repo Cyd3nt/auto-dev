@@ -31,7 +31,10 @@ open class AutoDevFeatureConfigurationProducer : BaseConfigurationProducer() {
         return AutoDevStory.fromStoryConfig(storyConfig)
     }
 
-    override fun isConfigurationFromContext(configuration: AutoDevConfiguration, context: ConfigurationContext): Boolean {
+    override fun isConfigurationFromContext(
+        configuration: AutoDevConfiguration,
+        context: ConfigurationContext
+    ): Boolean {
         val config = findConfig(context.location?.psiElement?.let { listOf(it) } ?: return false) ?: return false
         configuration.name = config.configurationName + "(Create)"
         configuration.setStoryConfig(config)

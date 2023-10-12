@@ -23,6 +23,7 @@ class PaLM2Provider(val project: Project) : LLMProvider {
         get() {
             return AutoDevSettingsState.getInstance().openAiKey
         }
+
     override fun prompt(input: String): String {
 //        val requestContent = Json.encodeToString(CustomRequest(input, input))
 //        val body = requestContent.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())

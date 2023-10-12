@@ -23,7 +23,8 @@ class MessageViewTest {
 
         assert(parts.size == 2)
         assertEquals(parts[0].getTextContent(), "complete code:\n")
-        assertEquals(parts[1].getTextContent(), """
+        assertEquals(
+            parts[1].getTextContent(), """
             |```java
             |public class HelloWorld {
             |    public static void main(String[] args) {
@@ -31,7 +32,8 @@ class MessageViewTest {
             |    }
             |}
             |```
-        """.trimMargin())
+        """.trimMargin()
+        )
     }
 
     @Test
@@ -59,7 +61,8 @@ class MessageViewTest {
 
         assert(parts.size == 3)
         assertEquals(parts[0].getTextContent(), "complete code:\n")
-        assertEquals(parts[1].getTextContent(), """
+        assertEquals(
+            parts[1].getTextContent(), """
             |```java
             |public class HelloWorld {
             |    public static void main(String[] args) {
@@ -67,14 +70,17 @@ class MessageViewTest {
             |    }
             |}
             |```
-            |""".trimMargin())
-        assertEquals(parts[2].getTextContent(), """
+            |""".trimMargin()
+        )
+        assertEquals(
+            parts[2].getTextContent(), """
             |```java
             |public class HelloWorld {
             |    public static void main(String[] args) {
             |        System.out.println("Hello, World");
             |    }
             |}
-            |```""".trimMargin())
+            |```""".trimMargin()
+        )
     }
 }

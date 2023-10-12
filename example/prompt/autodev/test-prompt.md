@@ -14,6 +14,7 @@ You are working on a project that uses Spring MVC,Spring WebFlux,JDBC to build R
 // class methods:
 // super classes: [Object]
 //
+
 ```java
 @PostMapping("/{meetingRoomId}/book")
     public ResponseEntity<BookMeetingRoomResponse> bookMeetingRoom(@PathVariable String meetingRoomId, @RequestBody BookMeetingRoomRequest request) {
@@ -23,4 +24,5 @@ You are working on a project that uses Spring MVC,Spring WebFlux,JDBC to build R
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 ```
+
 Start with `import` syntax here:  

@@ -28,7 +28,8 @@ class CoUnitPromptGenerator(val project: Project) {
     fun semanticQuery(query: ExplainQuery): QueryResult {
         val englishQuery: QueryResponse? = service.query(query.query, PayloadType.OpenApi).execute().body()
         val hydeDoc: QueryResponse? = service.query(query.hypotheticalDocument, PayloadType.OpenApi).execute().body()
-        val naturalLangQuery: QueryResponse? = service.query(query.natureLangQuery, PayloadType.OpenApi).execute().body()
+        val naturalLangQuery: QueryResponse? =
+            service.query(query.natureLangQuery, PayloadType.OpenApi).execute().body()
 
         return QueryResult(
             englishQuery?.data ?: emptyList(),
